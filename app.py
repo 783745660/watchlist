@@ -58,7 +58,7 @@ def login():
         password = request.form['password']
 
         if not username or not password:
-            flash('Invaild input.')
+            flash('Invalid input.')
             return redirect(url_for('login'))
 
         user = User.query.first()
@@ -67,7 +67,7 @@ def login():
             flash('Login success.')
             return redirect(url_for('index'))
 
-        flash('Invaild username or password')
+        flash('Invalid username or password.')
         return redirect(url_for('login'))
 
     return render_template('login.html')
@@ -76,7 +76,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash('Goodbye')
+    flash('Goodbye.')
     return redirect(url_for('index'))
 
 @app.route('/settings', methods=['GET', 'POST'])
@@ -86,7 +86,7 @@ def settings():
         name = request.form['name']
 
         if not name or len(name) > 20:
-            flash('Invaild input.')
+            flash('Invalid input.')
             return redirect(url_for('settings'))
 
         current_user.name = name
@@ -189,7 +189,7 @@ def edit(movie_id):
         year = request.form['year']
         
         if not title or not year or len(year) != 4 or len(title) > 60:
-            flash('Invaild input.')
+            flash('Invalid input.')
             return redirect(url_for('edit', movie_id=movie_id))
 
         movie.title = title
