@@ -1,2 +1,2 @@
 # watchlist
-A demo for flask-tutorial
+A demo for flask tutorial
